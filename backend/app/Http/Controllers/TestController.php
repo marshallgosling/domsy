@@ -8,5 +8,6 @@ final class TestController
 {
     public function index()
     {
+        echo 'Hello, World!';
     }
 }

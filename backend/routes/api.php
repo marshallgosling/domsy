@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('test', 'TestController@index')->name('test.index');
+
 Route::namespace('Api')->name('api.')->group(function () {
     Route::get('me', 'MeController@fetch')->name('me.fetch');
     Route::put('me/{user}', 'MeController@update')->name('me.update');

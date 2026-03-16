@@ -31,7 +31,7 @@ final class UserFactory extends Factory
             'emoji' => '',
             'email_verify_token' => Str::random(10),
             'email_verified_at' => now(),
-            'password' => Hash::make(Str::random(10)),
+            'password' => static::$password ??= Hash::make(Str::random(10)),
             'remember_token' => Str::random(10),
             'deleted_at' => null,
             'updated_at' => now(),

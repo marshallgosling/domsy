@@ -10,6 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 final class UserSeeder extends Seeder
 {
@@ -26,7 +27,7 @@ final class UserSeeder extends Seeder
             'role_id' => RoleConstant::DEFAULT_ROLE_ID,
             'name' => 'Test User',
             'email' => 'test@example.com',
-            'password' => '$2y$10$KqpJK5/P2CJUyh4ZSkple.jTh6wFluQNA3/9sIUusug3fUYk9b7hC',
+            'password' => Hash::make('password'),
             'emoji' => '🐭',
             'email_verify_token' => 'dGVzdEBleGFtcGxlLmNvbQ==',
             'email_verified_at' => Carbon::now(),
