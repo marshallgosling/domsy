@@ -38,7 +38,7 @@
         >
       </template>
       <template #[`item.registrar_name`]="{ item }"
-        >{{ $formattedPriceYen(item.registrar.name) }}
+        >{{ item.registrar.name }}
       </template>
       <template #[`item.purchased_at`]="{ item }"
         >{{ $dateHyphen(item.purchased_at) }}
