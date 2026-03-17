@@ -37,8 +37,8 @@
           ><v-icon small>mdi-checkbox-marked-circle</v-icon></span
         >
       </template>
-      <template #[`item.price`]="{ item }"
-        >{{ $formattedPriceYen(item.price) }}
+      <template #[`item.registrar_name`]="{ item }"
+        >{{ $formattedPriceYen(item.registrar.name) }}
       </template>
       <template #[`item.purchased_at`]="{ item }"
         >{{ $dateHyphen(item.purchased_at) }}
@@ -96,8 +96,8 @@ export default {
           value: 'name',
         },
         {
-          text: 'Price',
-          value: 'price',
+          text: 'Registrar Name',
+          value: 'registrar_name',
           filterable: false,
         },
         {
