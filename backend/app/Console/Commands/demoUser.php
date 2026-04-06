@@ -8,6 +8,7 @@ use Illuminate\Console\Command;
 use App\Constants\CompanyConstant;
 use App\Constants\RoleConstant;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class demoUser extends Command
 {
@@ -16,7 +17,7 @@ class demoUser extends Command
      *
      * @var string
      */
-    protected $signature = 'demo:user {username?}';
+    protected $signature = 'demo:user {username?} {password?}';
 
     /**
      * The console command description.
@@ -30,7 +31,8 @@ class demoUser extends Command
      */
     public function handle()
     {
-        $username = $this->argument('username') ?? 'nathangao';
+        $username = $this->argument('username') ?? 'nathangao@centlt.com';
+        $password = $this->argument('password') ?? Str::random(10);
 
         $this->info("Creating demo user: {$username}");
 
@@ -46,11 +48,13 @@ class demoUser extends Command
             'role_id' => RoleConstant::DEFAULT_ROLE_ID,
             'name' => $username,
             'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
+            'password' => Hash::make($password),
             'emoji' => '',
             'email_verify_token' => 'dGVzdEBleGFtcGxlLmNvbQ==',
             'email_verified_at' => Carbon::now(),
         ]);
+
+        $this->info("Password for {$username}: {$password}");
     }
 
 
