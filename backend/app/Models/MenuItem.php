@@ -12,6 +12,7 @@ final class MenuItem extends BaseModel
         'controller',
         'function',
         'route',
+        'endpoint',
         'description',
         'is_screen',
         'sort',
