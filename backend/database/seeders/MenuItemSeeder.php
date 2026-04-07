@@ -416,5 +416,29 @@ class MenuItemSeeder extends Seeder
             'is_screen' => 0,
             'sort' => 760,
         ]);
+
+        MenuItem::create([
+            'parent_id' => 2,
+            'name' => 'List',
+            'controller' => 'App\Http\Controllers\Api\DomainController',
+            'function' => 'fetchTransition',
+            'route' => 'api.domain.fetch.transaction',
+            'endpoint' => '/api/domain/transaction',
+            'description' => 'Fetch Domain Transaction',
+            'is_screen' => 0,
+            'sort' => 800,
+        ]);
+
+        MenuItem::create([
+            'parent_id' => 2,
+            'name' => 'List',
+            'controller' => 'App\Http\Controllers\Api\BillingController',
+            'function' => 'fetchTransaction ',
+            'route' => 'api.dealing.billing.transaction',
+            'endpoint' => '/api/dealing/billing/transaction',
+            'description' => 'Fetch Domain Billing Summary',
+            'is_screen' => 0,
+            'sort' => 810,
+        ]);
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Console\Command;
 use App\Constants\CompanyConstant;
 use App\Constants\RoleConstant;
+use App\Models\MenuItem;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 
@@ -31,7 +32,33 @@ class demoUser extends Command
      */
     public function handle()
     {
-        $username = $this->argument('username') ?? 'nathangao@centlt.com';
+        MenuItem::create([
+            'parent_id' => 2,
+            'name' => 'List',
+            'controller' => 'App\Http\Controllers\Api\DomainController',
+            'function' => 'fetchTransition',
+            'route' => 'api.domain.fetch.transaction',
+            'endpoint' => '/api/domain/transaction',
+            'description' => 'Fetch Domain Transaction',
+            'is_screen' => 0,
+            'sort' => 800,
+        ]);
+
+        MenuItem::create([
+            'parent_id' => 2,
+            'name' => 'List',
+            'controller' => 'App\Http\Controllers\Api\BillingController',
+            'function' => 'fetchTransaction ',
+            'route' => 'api.dealing.billing.transaction',
+            'endpoint' => '/api/dealing/billing/transaction',
+            'description' => 'Fetch Domain Billing Summary',
+            'is_screen' => 0,
+            'sort' => 810,
+        ]);
+        
+        return 0;
+    
+    $username = $this->argument('username') ?? 'nathangao@centlt.com';
         $password = $this->argument('password') ?? Str::random(10);
 
         $this->info("Creating demo user: {$username}");
