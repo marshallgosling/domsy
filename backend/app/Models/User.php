@@ -123,7 +123,7 @@ final class User extends Authenticatable implements MustVerifyEmail
      */
     public function isCompany(): bool
     {
-        return $this->company_id !== CompanyConstant::INDEPENDENT_COMPANY_ID;
+        return true; //$this->company_id !== CompanyConstant::INDEPENDENT_COMPANY_ID;
     }
 
     /**
