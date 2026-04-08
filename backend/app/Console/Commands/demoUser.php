@@ -50,7 +50,7 @@ class demoUser extends Command
             'company_id' => CompanyConstant::INDEPENDENT_COMPANY_ID,
             'role_id' => RoleConstant::DEFAULT_ROLE_ID,
             'name' => $username,
-            'email' => 'admin@example.com',
+            'email' => $username,
             'password' => Hash::make($password),
             'emoji' => '',
             'email_verify_token' => 'dGVzdEBleGFtcGxlLmNvbQ==',
